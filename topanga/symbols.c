@@ -208,8 +208,8 @@ kern_return_t offsets_init() {
   
     
     size_t len = 0;
-    char *model = malloc(len * sizeof(char));
     sysctlbyname("hw.model", NULL, &len, NULL, 0);
+    char *model = malloc(len);
     if (len) {
         sysctlbyname("hw.model", model, &len, NULL, 0);
         printf("[INFO]: model internal name: %s\n", model);
